@@ -1,0 +1,40 @@
+.backdrop{
+    margin:0;
+    padding : 10px;
+    border: 2px solid rgba(0,0,0,0.3);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: rgb(19, 19, 19);
+}
+
+.edit-btn{
+    /* position: sticky; */
+    right: 3px;
+    background-color: white;
+}
+.update-title{
+    /* padding-top: 20px ; */
+    padding-bottom: 20px ;
+    text-align: center;
+}
+.popup {
+    display:flex;
+    flex-direction: column;
+    border: 2px solid rgba(0,0,0,0.3);
+    border-radius: 10px;
+    padding : 30px;
+    gap: 1rem;
+    background-color:rgba(143, 143, 143, 0.572);
+}
+
+.edit_section {
+    display: flex;
+    flex-direction: row;
+    gap : 1rem;
+}
+button {
+    padding: 1px;
+    border-radius: 5px;
+    /* background: transparent; */
+}

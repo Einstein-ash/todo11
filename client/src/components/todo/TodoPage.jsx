@@ -1,25 +1,30 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { CiEdit } from "react-icons/ci"
+import UpdatePage from "./UpdatePage"
 
 import "../assets/css/todo.css";
 
 const TodoPage = () => {
   const [todos, setTodos] = useState([]);
   const [content, setContent] = useState("");
-  const [editingTodo, setEditingTodo] = useState(null);
+  // const [editingTodo, setEditingTodo] = useState(null);
+  const [showPopUp, setshowPopUp] = useState(false);
+  const [popupContent, setPopupContent] = useState({});
+  
 
   useEffect(() => {
     async function getTodos() {
       const res = await fetch("/api/todos");
       const todos = await res.json();
-
+let text = el.todo;
       setTodos(todos);
 
       console.log(todos);
     }
     getTodos();
   }, []);
+  
 
   //  -------------- create new todo const here---------------------
 
@@ -63,9 +68,12 @@ const TodoPage = () => {
   //     });
   //   }
   // };
-  //  -------------- edit- wala- update todo const here---------------------
+
+
+  //  ------- edit- wala- update todo const here------------
 
   const updateTodo = async (todoId, todoStatus, todoContent) => {
+    // setshowPopUp(true);
     const res = await fetch(`/api/todos/${todoId}`, {
       method: "PUT",
       body: JSON.stringify({ status: todoStatus, content: todoContent }),
@@ -87,6 +95,15 @@ const TodoPage = () => {
     }
   };
   
+  
+  // -----------------------------------edit new
+  const updateTodoPop = async (todoId,todoStatus,todoContent) => {
+
+
+    // setupdatedContent();
+    // setPopupContent(todoContent,todoId);
+    setshowPopUp(true);
+  };
 
 
   //  -------------- delete todo const here---------------------
@@ -103,21 +120,10 @@ const TodoPage = () => {
     }
   };
 
-//  ------------- EDIT todo const here---------------------
 
-const editTodo = async (todoId) => {
-  // const res = await fetch(`/api/todos/${todoId}`, {
-  //   method: "DELETE",
-  // });
-  // const json = await res.json();
-  // if (json.acknowledged) {
-  //   setTodos((currentTodos) => {
-  //     return currentTodos.filter((currentTodo) => currentTodo._id !== todoId);
-  //   });
-  // }
-};
 
  
+
   // --------return down here --------------
 
   return (
@@ -150,12 +156,12 @@ const editTodo = async (todoId) => {
                   {todo.status ? "☑" : "☐"}
                 </button>
                 {/* edit buton down */}
-                {/* <button 
+                <button 
                 className="todo-edit"
-                onClick={() => editTodo(todo._id)}
+                onClick={() => updateTodoPop(todo._id)}
                 >
                   <CiEdit />
-                </button> */}
+                </button>
 
                 
 {/* edit button above  */}
@@ -169,8 +175,10 @@ const editTodo = async (todoId) => {
             </div>
           ))}
       </div>
+
+      {showPopUp && <UpdatePage setshowPopUp = {setshowPopUp}  popupContent = {popupContent} />}
     </div>
   );
 };
 
-export default TodoPage;
+export default TodoPage  ;

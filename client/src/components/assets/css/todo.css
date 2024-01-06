@@ -54,7 +54,7 @@ h6 {
 .todo-container{
 
     margin: 0px;
-    padding : 10%;
+    padding-top : 5%;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -82,11 +82,19 @@ h6 {
 
 .todos {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     gap: 1rem;
+    max-height: 70vh;
+    overflow-y: scroll;
+    
+    scroll-behavior: none;
 
 }
+
+div::-webkit-scrollbar{
+  display: none;
+} 
 
 .todo {
     display: flex;
