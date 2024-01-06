@@ -1,4 +1,16 @@
+.login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    background : url('../todo-bg2.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+} 
+
 .wapper {
+    box-sizing: border-box;
     width: 420px;
     background-color: transparent;
     border: 2px solid rgba(255,255,255,.2);
@@ -7,6 +19,9 @@
     color : white;
     padding: 30px 40px;
     border-radius: 15px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
 }
 
 .wapper h1 {

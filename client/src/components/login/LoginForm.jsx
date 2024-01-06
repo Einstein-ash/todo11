@@ -5,6 +5,9 @@ import { FaUserTie , FaLock} from "react-icons/fa";
 
 const LoginForm =() => {
     return (
+        <div className="login-container">
+
+        
         <div className='wapper'> 
         <form action="POST">
             <h1>LOGIN</h1>
@@ -29,6 +32,7 @@ const LoginForm =() => {
                 <p>Don't have an account?  <a href="#">Register</a></p>
             </div>
         </form>   
+        </div>
         </div>
     );
 };
